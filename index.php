@@ -35,6 +35,20 @@ $default_cfg = array(
         // ]
     ],
 
+    'i18n' => [
+        'locales' => [
+            // 'en_IN',
+        ],
+        'languages' => [
+            // 'en' => 'en_IN'
+        ],
+        'gettext' => false
+        // 'gettext' => [
+        //     'domain' => 'messages',
+        //     'directory' => './locale'
+        // ]
+    ],
+
     '404_view' => '404',
     '404_data' => [
         // data to pass to a generic error view in case of a 404
@@ -85,6 +99,7 @@ require(SYSPATH . 'loader.php');
 require(SYSPATH . 'controller.php');
 require(SYSPATH . 'model.php');
 require(SYSPATH . 'library.php');
+require(SYSPATH . 'i18n.php');
 
 /*
  * Understand URL and decompose route

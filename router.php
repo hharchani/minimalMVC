@@ -19,6 +19,8 @@ class Router {
     */
     private $args = array();
 
+    private $i18n = false;
+
     /**
      * Loads routes from `app/routes.php`
      */
@@ -44,12 +46,16 @@ class Router {
     }
 
     function __construct($request_path) {
+        $this->i18n = new i18n();
+
         if (empty($request_path)) {
             $request_path = '/';
         }
 
         // Clean up request path
         $request_path = str_replace('\\', '/', $request_path);
+
+        $request_path = $this->i18n->get_locale_from_path($request_path);
 
         $routes = $this->_load_routes();
         $path = '';
