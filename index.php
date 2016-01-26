@@ -74,6 +74,11 @@ else {
 }
 
 /*
+ * Locale aware base_url, will be updated by the i18n class
+ */
+$_locale_base_url = $_base_url;
+
+/*
  * Helper implementation
  */
 function load_helper($helper) {

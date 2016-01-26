@@ -46,10 +46,12 @@ class i18n {
     }
 
     function get_locale_from_path($path) {
+        global $_locale_base_url;
         $pathInfo = empty($path)? array() : explode('/', $path);
 
         if (!empty($pathInfo[1])) {
             if ($this->set_locale($pathInfo[1])) {
+                $_locale_base_url .= $pathInfo[1] . '/';
                 array_splice($pathInfo, 1, 1);
             } else {
                 header('Vary: Accept-Language');
