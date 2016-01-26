@@ -10,6 +10,8 @@ class i18n {
             $directory = $cfg['i18n']['gettext']['directory'];
             bindtextdomain($domain, $directory);
             textdomain($domain);
+
+            load_helper('gettext');
         }
 
         $client_locale = $this->get_client_locale();
