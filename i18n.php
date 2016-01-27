@@ -18,6 +18,8 @@ class i18n {
         if ($client_locale) {
             $this->set_locale($client_locale);
         }
+
+        setcookie('locale_path_prefix', '', 0, '/');
     }
 
     private function _set_locale($locale) {
@@ -54,6 +56,7 @@ class i18n {
         if (!empty($pathInfo[1])) {
             if ($this->set_locale($pathInfo[1])) {
                 $_locale_base_url .= $pathInfo[1] . '/';
+                setcookie('locale_path_prefix', $pathInfo[1], 0, '/');
                 array_splice($pathInfo, 1, 1);
             } else {
                 header('Vary: Accept-Language');
