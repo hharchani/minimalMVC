@@ -12,14 +12,14 @@ class i18n {
             textdomain($domain);
 
             load_helper('gettext');
-        }
 
-        $client_locale = $this->get_client_locale();
-        if ($client_locale) {
-            $this->set_locale($client_locale);
-        }
+            $client_locale = $this->get_client_locale();
+            if ($client_locale) {
+                $this->set_locale($client_locale);
+            }
 
-        setcookie('locale_path_prefix', '', 0, '/');
+            setcookie('locale_path_prefix', '', 0, '/');
+        }
     }
 
     private function _set_locale($locale) {
